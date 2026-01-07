@@ -1,12 +1,19 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function DefaultLayout() {
   return (
-    <div className="container">
+    <>
       <Navbar />
-    </div>
+
+      <main className="container py-4">
+        <Outlet />
+      </main>
+
+      <Footer />
+    </>
   );
 }
 
