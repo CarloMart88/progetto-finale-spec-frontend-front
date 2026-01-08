@@ -1,19 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useCoffee } from "../context/CoffeeContext";
 const baseUrl = `http://localhost:3001/coffees`;
 
 function Home() {
-  const [coffees, setCoffees] = useState([]);
+  const { coffees } = useCoffee();
 
-  useEffect(() => {
-    fetch(baseUrl)
-      .then((res) => res.json())
-      .then((data) => setCoffees(data))
-      .catch((err) => console.error(err));
-  }, []);
-
-  console.log(coffees);
   return (
     <div className="container">
       <div className="row">
