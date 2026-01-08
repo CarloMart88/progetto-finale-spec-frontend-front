@@ -1,3 +1,4 @@
+/*DETAIL*/
 .detail-card {
   max-width: 800px;
   margin: 40px auto;
@@ -54,4 +55,28 @@
 
 .back-link:hover {
   background: #6f3610;
+}
+
+/* HOME */
+
+.coffee-item {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.coffee-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.coffee-link {
+  text-decoration: none;
+  color: #3b2f2f;
+  font-weight: 600;
+}
+
+.coffee-link:hover {
+  color: #8b4513;
 }
