@@ -1,42 +1,108 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { useCompare } from "../context/CompareContext";
 
 function Compare() {
-  const { compare } = useCompare();
-
-  if (compare.length < 2) {
-    return (
-      <div className="compare-empty">
-        <h2>Seleziona due caffè da confrontare</h2>
-      </div>
-    );
-  }
+  const { compare, toggleCompare } = useCompare();
 
   const [first, second] = compare;
 
   return (
-    <div className="col-12">
-      <div className="row">
-        <div className="col-6">
-          <img className="detail-image" src={first.image} alt={first.title} />
-          <p>{first.title}</p>
-          <p>{first.origin}</p>
-          <p>{first.roastLevel}</p>
-          <p>{first.intensity}</p>
-          <p>{first.aromaNotes}</p>
-          <p>{first.process}</p>
-          <p>{first.pricePerKg}</p>
+    <div className="compare-wrapper">
+      <h1 className="text-center mb-4">Confronto Caffè</h1>
+
+      <div className="row g-4">
+        {/* COLONNA 1 */}
+        <div className="col-12 col-md-6">
+          {first ? (
+            <div className="compare-card">
+              <img
+                className="compare-image"
+                src={first.image}
+                alt={first.title}
+              />
+
+              <h3 className="compare-title">{first.title}</h3>
+
+              <p>
+                <strong>Origine:</strong> {first.origin}
+              </p>
+              <p>
+                <strong>Tostatura:</strong> {first.roastLevel}
+              </p>
+              <p>
+                <strong>Intensità:</strong> {first.intensity}
+              </p>
+              <p>
+                <strong>Aroma:</strong> {first.aromaNotes}
+              </p>
+              <p>
+                <strong>Processo:</strong> {first.process}
+              </p>
+              <p className="compare-price">{first.pricePerKg}€ al kg</p>
+
+              <button
+                className="remove-btn"
+                onClick={() => toggleCompare(first)}
+              >
+                Rimuovi dal confronto
+              </button>
+            </div>
+          ) : (
+            <div className="compare-placeholder">
+              <p>Seleziona un caffè da confrontare</p>
+            </div>
+          )}
         </div>
-        <div className="col-6">
-          <img className="detail-image" src={second.image} alt={second.title} />
-          <p>{second.title}</p>
-          <p>{second.origin}</p>
-          <p>{second.roastLevel}</p>
-          <p>{second.intensity}</p>
-          <p>{second.aromaNotes}</p>
-          <p>{second.process}</p>
-          <p>{second.pricePerKg}</p>
+
+        {/* COLONNA 2 */}
+        <div className="col-12 col-md-6">
+          {second ? (
+            <div className="compare-card">
+              <img
+                className="compare-image"
+                src={second.image}
+                alt={second.title}
+              />
+
+              <h3 className="compare-title">{second.title}</h3>
+
+              <p>
+                <strong>Origine:</strong> {second.origin}
+              </p>
+              <p>
+                <strong>Tostatura:</strong> {second.roastLevel}
+              </p>
+              <p>
+                <strong>Intensità:</strong> {second.intensity}
+              </p>
+              <p>
+                <strong>Aroma:</strong> {second.aromaNotes}
+              </p>
+              <p>
+                <strong>Processo:</strong> {second.process}
+              </p>
+              <p className="compare-price">{second.pricePerKg}€ al kg</p>
+
+              <button
+                className="remove-btn"
+                onClick={() => toggleCompare(second)}
+              >
+                Rimuovi dal confronto
+              </button>
+            </div>
+          ) : (
+            <div className="compare-placeholder">
+              <p>Aggiungi un altro caffè al confronto</p>
+            </div>
+          )}
         </div>
+      </div>
+
+      <div className="text-center mt-4">
+        <NavLink className="back-link" to="/">
+          ← Torna alla home
+        </NavLink>
       </div>
     </div>
   );
