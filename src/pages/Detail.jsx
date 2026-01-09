@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import CoffeCard from "../components/CoffeCard";
+
 function Detail() {
   const { id } = useParams();
   const [coffee, setCoffee] = useState(null);

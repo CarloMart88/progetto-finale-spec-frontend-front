@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useCompare } from "../context/CompareContext";
 
 function CoffeCard({ coffee }) {
+  const { compare, toggleCompare } = useCompare();
+  const isAlready = compare.some((c) => c.id === coffee.id);
   return (
     <div className="detail-card">
       <img className="detail-image" src={coffee.image} alt={coffee.title} />
@@ -28,6 +31,9 @@ function CoffeCard({ coffee }) {
         <NavLink className="back-link" to="/">
           ← Torna indietro
         </NavLink>
+        <button className="btn" onClick={() => toggleCompare(coffee)}>
+          {isAlready ? "Rimuovi dalla lista" : "Aggiungi alla lista"}
+        </button>
       </div>
     </div>
   );
