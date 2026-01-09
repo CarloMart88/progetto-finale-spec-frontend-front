@@ -7,23 +7,26 @@ import Detail from "./pages/Detail";
 import Compare from "./pages/Compare";
 import { CoffeeProvider } from "./context/CoffeeContext";
 import { CompareProvider } from "./context/CompareContext";
+import { FavoritesProvider } from "./context/FavoritesContext";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <CompareProvider>
-          <CoffeeProvider>
-            <Routes>
-              <Route element={<DefaultLayout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/coffees/:id" element={<Detail />} />
-                <Route path="/compare" element={<Compare />} />
-                <Route path="/favorites" element={<Favorites />} />
-              </Route>
-            </Routes>
-          </CoffeeProvider>
-        </CompareProvider>
+        <FavoritesProvider>
+          <CompareProvider>
+            <CoffeeProvider>
+              <Routes>
+                <Route element={<DefaultLayout />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/coffees/:id" element={<Detail />} />
+                  <Route path="/compare" element={<Compare />} />
+                  <Route path="/favorites" element={<Favorites />} />
+                </Route>
+              </Routes>
+            </CoffeeProvider>
+          </CompareProvider>
+        </FavoritesProvider>
       </BrowserRouter>
     </>
   );
