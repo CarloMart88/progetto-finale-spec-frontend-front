@@ -20,6 +20,8 @@ function CoffeCard({ coffee }) {
   const isAlready = compare.some((c) => c.id === coffee.id);
   const isFavorite = favorites.some((f) => f.id === coffee.id);
 
+  console.log(favorites);
+
   return (
     <div className="detail-card">
       <img className="detail-image" src={image} alt={title} />
@@ -53,6 +55,13 @@ function CoffeCard({ coffee }) {
         )}
         <button className="btn" onClick={() => toggleCompare(coffee)}>
           {isAlready ? "Rimuovi dalla lista" : "Aggiungi alla lista"}
+        </button>
+        <button className="fav-btn" onClick={() => toggleFavorites(coffee)}>
+          {isFavorite ? (
+            <i className="bi bi-heart-fill text-danger"></i>
+          ) : (
+            <i className="bi bi-heart"></i>
+          )}
         </button>
       </div>
     </div>

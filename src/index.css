@@ -148,3 +148,18 @@
   color: #666;
   font-style: italic;
 }
+
+/* icona cuore */
+
+.fav-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.fav-btn i {
+  transition: color 0.2s ease;
+}

@@ -10,6 +10,7 @@ function FavoritesProvider({ children }) {
       if (prev.find((f) => f.id === coffee.id)) {
         return prev.filter((f) => f.id !== coffee.id);
       }
+
       return [...prev, coffee];
     });
   }
