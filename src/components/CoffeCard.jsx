@@ -31,6 +31,11 @@ function CoffeCard({ coffee }) {
         <NavLink className="back-link" to="/">
           ← Torna indietro
         </NavLink>
+        {compare.length === 2 && isAlready && (
+          <NavLink className="back-link" to="/compare">
+            Vai al comparatore!
+          </NavLink>
+        )}
         <button className="btn" onClick={() => toggleCompare(coffee)}>
           {isAlready ? "Rimuovi dalla lista" : "Aggiungi alla lista"}
         </button>
