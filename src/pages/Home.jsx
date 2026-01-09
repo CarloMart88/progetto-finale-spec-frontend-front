@@ -8,13 +8,29 @@ function Home() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
+  const [debounceQuery, setDebounceQuery] = useState("");
+
+  // funzione di debounce pura
+  function debounce(callback, delay) {
+    let timer;
+    return (value) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        callback(value);
+      }, delay);
+    };
+  }
+
+  const debouncedFilter = debounce((value) => {
+    setDebounceQuery(value);
+  }, 300);
 
   // categorie uniche
   const categories = [...new Set(coffees.map((c) => c.category))];
 
   // FILTRI
   const filtered = coffees
-    .filter((c) => c.title.toLowerCase().includes(query.toLowerCase()))
+    .filter((c) => c.title.toLowerCase().includes(debounceQuery.toLowerCase()))
     .filter((c) => (category ? c.category === category : true))
     .sort((a, b) => {
       if (sort === "title-asc") return a.title.localeCompare(b.title);
@@ -31,7 +47,10 @@ function Home() {
         className="form-control mb-3"
         placeholder="Cerca per titolo..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {
+          debouncedFilter(e.target.value);
+          setQuery(e.target.value);
+        }}
       />
 
       {/* FILTRO CATEGORIA */}
