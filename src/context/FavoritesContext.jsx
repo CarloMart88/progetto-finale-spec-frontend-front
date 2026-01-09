@@ -1,9 +1,21 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const FavoritesContext = createContext();
 
 function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
+  //local storage per caricare il favorito al caricamento della pagina
+  useEffect(() => {
+    const save = localStorage.getItem("favorites");
+    if (save) {
+      setFavorites(JSON.parse(save));
+    }
+  }, []);
+
+  //local storage per salvare il favorito ogni volta che cambia
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   function toggleFavorites(coffee) {
     setFavorites((prev) => {
