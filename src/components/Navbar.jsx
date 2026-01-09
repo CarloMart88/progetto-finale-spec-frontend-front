@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import { useFavorites } from "../context/FavoritesContext";
 
 export default function Navbar() {
+  const { favorites } = useFavorites();
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -30,8 +33,11 @@ export default function Navbar() {
               Compare
             </NavLink>
 
-            <NavLink className="nav-link" to="/favorites">
+            <NavLink className="nav-link position-relative" to="/favorites">
               Favorites
+              {favorites.length > 0 && (
+                <span className="badge bg-danger ms-2">{favorites.length}</span>
+              )}
             </NavLink>
           </div>
         </div>

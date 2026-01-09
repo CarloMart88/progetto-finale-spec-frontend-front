@@ -10,23 +10,27 @@ function FavoriteCard({ coffee }) {
   const isAlready = compare.some((c) => c.id === coffee.id);
 
   return (
-    <div className="fav-card">
-      <img className="fav-image" src={coffee.image} alt={coffee.title} />
+    <div className="favorite-card">
+      <div className="favorite-image-wrapper">
+        <img className="favorite-image" src={coffee.image} alt={coffee.title} />
 
-      <h3 className="fav-title">{coffee.title}</h3>
-
-      <p className="fav-origin">{coffee.origin}</p>
-
-      <div className="fav-actions">
-        <button className="btn" onClick={() => toggleCompare(coffee)}>
-          {isAlready ? "Rimuovi dal confronto" : "Confronta"}
-        </button>
-
-        <button className="fav-btn" onClick={() => toggleFavorites(coffee)}>
+        <button
+          className="favorite-heart"
+          onClick={() => toggleFavorites(coffee)}
+        >
           <i className="bi bi-heart-fill text-danger"></i>
         </button>
+      </div>
 
-        <NavLink className="fav-link" to={`/coffees/${coffee.id}`}>
+      <h3 className="favorite-title">{coffee.title}</h3>
+      <p className="favorite-origin">{coffee.origin}</p>
+
+      <div className="favorite-actions">
+        <button className="btn" onClick={() => toggleCompare(coffee)}>
+          {isAlready ? "Rimuovi confronto" : "Confronta"}
+        </button>
+
+        <NavLink className="favorite-link" to={`/coffees/${coffee.id}`}>
           Dettagli
         </NavLink>
       </div>

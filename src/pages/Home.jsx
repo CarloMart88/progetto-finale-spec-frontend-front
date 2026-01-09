@@ -20,7 +20,7 @@ function Home() {
       if (sort === "title-asc") return a.title.localeCompare(b.title);
       if (sort === "title-desc") return b.title.localeCompare(a.title);
       if (sort === "cat-asc") return a.category.localeCompare(b.category);
-      if (sort === "title-desc") return b.category.localeCompare(a.category);
+      if (sort === "cat-desc") return b.category.localeCompare(a.category);
     });
 
   return (
