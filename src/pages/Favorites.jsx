@@ -7,8 +7,8 @@ function Favorites() {
 
   if (favorites.length === 0) {
     return (
-      <div className="text-center mt-5">
-        <h2>Nessun preferito ancora</h2>
+      <div className="jumbotron-coffee text-center mb-5 p-5 rounded">
+        <h1 className="display-4 fw-bold">Nessun preferito ancora</h1>
         <p>Aggiungi un caffè ai preferiti per visualizzarlo qui.</p>
       </div>
     );

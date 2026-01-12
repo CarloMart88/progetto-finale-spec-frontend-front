@@ -53,7 +53,7 @@
   margin-top: 20px;
   display: inline-block;
   padding: 10px 16px;
-  background: #8b4513;
+  background: #d6ad7b;
   color: white;
   border-radius: 6px;
   text-decoration: none;
@@ -291,6 +291,7 @@ footer strong {
 /*MAIN */
 
 .caffe {
+  height: 80vh;
   padding: 20px;
   background-image: url("https://image.freepik.com/vetores-gratis/padrao-sem-emenda-de-graos-de-cafe-vintage-de-esboco-desenhado-de-mao-ilustracao-vetorial-plano-de-fundo-para-design-de-menu-de-cafe-e-restaurante_251616-2833.jpg");
   background-size: cover;
@@ -309,5 +310,12 @@ footer strong {
 }
 
 .jumbotron-coffee .lead {
+  color: #d7b89c; 
+}
+
+
+/*COMPARE*/
+
+.coffee-color{
   color: #d7b89c; 
 }

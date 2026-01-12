@@ -57,7 +57,7 @@ function CoffeCard({ coffee }) {
             Vai al comparatore!
           </NavLink>
         )}
-        <button className="btn" onClick={() => toggleCompare(coffee)}>
+        <button className="back-link" onClick={() => toggleCompare(coffee)}>
           {isAlready ? "Rimuovi dalla lista" : "Aggiungi alla lista"}
         </button>
         <button className="fav-btn" onClick={() => toggleFavorites(coffee)}>

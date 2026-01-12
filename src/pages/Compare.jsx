@@ -9,7 +9,9 @@ function Compare() {
 
   return (
     <div className="compare-wrapper">
-      <h1 className="text-center mb-4">Confronto Caffè</h1>
+      <div className="jumbotron-coffee text-center mb-5 p-5 rounded">
+        <h1 className="display-4 fw-bold">Il nostro Comparatore</h1>
+      </div>
 
       <div className="row g-4">
         {/* COLONNA 1 */}
