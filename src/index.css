@@ -84,8 +84,7 @@
 
 
 .compare-wrapper {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding: 40px;
 }
 
 /* CARD */
@@ -167,7 +166,7 @@
 
 /*CARTA FAVORITI */
 
-/* CARD FAVORITI */
+
 .favorite-card {
   background: #fff;
   padding: 20px;
@@ -238,8 +237,56 @@
   background: #6f3610;
 }
 
-/*NAVBAR*/
+/*NAVBAR */
+
+.navbar {
+  background-color: #3b2f2f;
+  color: #f5e9da;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #f5e9da !important;
+  font-weight: 600;
+}
+
+.navbar .nav-link:hover {
+  color: #d7b89c !important; 
+}
+
+.navbar-toggler {
+  border-color: #f5e9da;
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1); 
+}
+
 
 .navbar .badge {
   background-color: #8b4513 !important;
+}
+
+
+/* FOOTER */
+
+footer {
+  background-color: #f5e9da;
+  color: #3b2f2f;
+  border-top: none;
+}
+
+footer strong {
+  color: #8b4513;
+}
+
+
+/*MAIN */
+
+.caffe {
+  padding: 20px;
+  background-image: url("https://image.freepik.com/vetores-gratis/padrao-sem-emenda-de-graos-de-cafe-vintage-de-esboco-desenhado-de-mao-ilustracao-vetorial-plano-de-fundo-para-design-de-menu-de-cafe-e-restaurante_251616-2833.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

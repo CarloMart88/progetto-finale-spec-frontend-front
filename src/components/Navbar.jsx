@@ -2,12 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import { useFavorites } from "../context/FavoritesContext";
 import { useCompare } from "../context/CompareContext";
 
-export default function Navbar() {
+function Navbar() {
   const { favorites } = useFavorites();
   const { compare } = useCompare();
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Coffee Explorer
@@ -50,3 +50,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar;

@@ -8,7 +8,7 @@ function DefaultLayout() {
     <>
       <Navbar />
 
-      <main className="container py-4">
+      <main className="caffe">
         <Outlet />
       </main>
 

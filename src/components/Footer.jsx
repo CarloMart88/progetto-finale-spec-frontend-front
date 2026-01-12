@@ -1,8 +1,6 @@
-import React from "react";
-
 function Footer() {
   return (
-    <footer className="text-center py-4 mt-5 border-top">
+    <footer className="text-center py-4 ">
       <p className="mb-1">
         <strong>Carlo Martino</strong> — Project Manager & Software Developer
       </p>
