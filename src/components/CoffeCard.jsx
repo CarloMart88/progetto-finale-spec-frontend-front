@@ -13,6 +13,7 @@ function CoffeCard({ coffee }) {
     aromaNotes,
     process,
     pricePerKg,
+    story,
   } = coffee;
 
   const { compare, toggleCompare } = useCompare();
@@ -44,6 +45,9 @@ function CoffeCard({ coffee }) {
           <strong>Processo:</strong> {process}
         </p>
         <p className="detail-price">{pricePerKg}€ al kg</p>
+        <p className="detail-story">
+          <strong>Storia:</strong> {story}
+        </p>
 
         <NavLink className="back-link" to="/">
           ← Torna indietro

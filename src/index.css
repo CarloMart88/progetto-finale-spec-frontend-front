@@ -5,7 +5,7 @@
   padding: 24px;
   display: flex;
   gap: 24px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.90);
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
 }
@@ -39,6 +39,13 @@
   margin-top: 12px;
   font-size: 20px;
   font-weight: bold;
+  color: #8b4513;
+}
+
+
+.detail-story {
+  margin-top: 12px;
+  font-size: 20px;
   color: #8b4513;
 }
 
@@ -89,7 +96,7 @@
 
 /* CARD */
 .compare-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
   padding: 24px;
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
@@ -168,7 +175,7 @@
 
 
 .favorite-card {
-  background: #fff;
+  background: rgba(255, 255, 255 ,0.85);
   padding: 20px;
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
@@ -289,4 +296,18 @@ footer strong {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/*JUMBOTRON */
+
+
+
+.jumbotron-coffee {
+  background-color: #3b2f2f; 
+  color: #f5e9da; 
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.jumbotron-coffee .lead {
+  color: #d7b89c; 
 }

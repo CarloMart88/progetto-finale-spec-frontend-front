@@ -42,6 +42,12 @@ function Home() {
   return (
     <div className="container py-4">
       {/* SEARCH */}
+      <div className="jumbotron-coffee text-center mb-5 p-5 rounded">
+        <h1 className="display-4 fw-bold">Coffee Explorer</h1>
+        <p className="lead mt-3">
+          Scopri, confronta e scegli il tuo caffè preferito.
+        </p>
+      </div>
       <input
         type="text"
         className="form-control mb-3"
