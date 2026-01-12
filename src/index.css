@@ -291,7 +291,7 @@ footer strong {
 /*MAIN */
 
 .caffe {
-  height: 80vh;
+  min-height: 80vh;
   padding: 20px;
   background-image: url("https://image.freepik.com/vetores-gratis/padrao-sem-emenda-de-graos-de-cafe-vintage-de-esboco-desenhado-de-mao-ilustracao-vetorial-plano-de-fundo-para-design-de-menu-de-cafe-e-restaurante_251616-2833.jpg");
   background-size: cover;
