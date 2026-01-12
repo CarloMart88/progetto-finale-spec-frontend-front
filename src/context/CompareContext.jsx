@@ -8,7 +8,7 @@ function CompareProvider({ children }) {
 
   function toggleCompare(coffee) {
     setCompare((prev) => {
-      if (prev.find((p) => p.id === coffee.id)) {
+      if (prev.some((p) => p.id === coffee.id)) {
         return prev.filter((p) => p.id !== coffee.id);
       }
       if (prev.length === 2) {

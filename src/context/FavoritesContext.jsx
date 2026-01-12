@@ -3,14 +3,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 const FavoritesContext = createContext();
 
 function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState([]);
   //local storage per caricare il favorito al caricamento della pagina
-  useEffect(() => {
-    const save = localStorage.getItem("favorites");
-    if (save) {
-      setFavorites(JSON.parse(save));
-    }
-  }, []);
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem("favorites");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   //local storage per salvare il favorito ogni volta che cambia
   useEffect(() => {
@@ -19,10 +16,9 @@ function FavoritesProvider({ children }) {
 
   function toggleFavorites(coffee) {
     setFavorites((prev) => {
-      if (prev.find((f) => f.id === coffee.id)) {
+      if (prev.some((f) => f.id === coffee.id)) {
         return prev.filter((f) => f.id !== coffee.id);
       }
-
       return [...prev, coffee];
     });
   }

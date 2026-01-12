@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { useFavorites } from "../context/FavoritesContext";
+import { useCompare } from "../context/CompareContext";
 
 export default function Navbar() {
   const { favorites } = useFavorites();
+  const { compare } = useCompare();
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,6 +33,9 @@ export default function Navbar() {
 
             <NavLink className="nav-link" to="/compare">
               Compare
+              {compare.length === 2 && (
+                <span className="badge bg-danger ms-2">!</span>
+              )}
             </NavLink>
 
             <NavLink className="nav-link position-relative" to="/favorites">
