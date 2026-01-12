@@ -2,15 +2,22 @@ import React from "react";
 import { useFavorites } from "../context/FavoritesContext";
 import CoffeCard from "../components/CoffeCard";
 import FavoriteCard from "../components/FavoriteCard";
+import { NavLink } from "react-router-dom";
 function Favorites() {
   const { favorites } = useFavorites();
 
   if (favorites.length === 0) {
     return (
-      <div className="jumbotron-coffee text-center mb-5 p-5 rounded">
-        <h1 className="display-4 fw-bold">Nessun preferito ancora</h1>
-        <p>Aggiungi un caffè ai preferiti per visualizzarlo qui.</p>
-      </div>
+      <>
+        {" "}
+        <div className="jumbotron-coffee text-center mb-5 p-5 rounded">
+          <h1 className="display-4 fw-bold">Nessun preferito ancora</h1>
+          <p>Aggiungi un caffè ai preferiti per visualizzarlo qui.</p>
+          <NavLink className="back-link" to="/">
+            ← Torna alla home
+          </NavLink>
+        </div>
+      </>
     );
   }
 
