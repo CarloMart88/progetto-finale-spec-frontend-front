@@ -1,6 +1,18 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCoffee } from "../context/CoffeeContext";
+import { useCallback } from "react";
+import { useMemo } from "react";
+// funzione di debounce pura
+function debounce(callback, delay) {
+  let timer;
+  return (value) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback(value);
+    }, delay);
+  };
+}
 
 function Home() {
   const { coffees } = useCoffee();
@@ -10,34 +22,32 @@ function Home() {
   const [sort, setSort] = useState("");
   const [debounceQuery, setDebounceQuery] = useState("");
 
-  // funzione di debounce pura
-  function debounce(callback, delay) {
-    let timer;
-    return (value) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        callback(value);
-      }, delay);
-    };
-  }
-
-  const debouncedFilter = debounce((value) => {
-    setDebounceQuery(value);
-  }, 300);
+  const debouncedFilter = useCallback(
+    debounce((value) => {
+      setDebounceQuery(value);
+    }, 300),
+    []
+  );
 
   // categorie uniche
   const categories = [...new Set(coffees.map((c) => c.category))];
 
   // FILTRI
-  const filtered = coffees
-    .filter((c) => c.title.toLowerCase().includes(debounceQuery.toLowerCase()))
-    .filter((c) => (category ? c.category === category : true))
-    .sort((a, b) => {
-      if (sort === "title-asc") return a.title.localeCompare(b.title);
-      if (sort === "title-desc") return b.title.localeCompare(a.title);
-      if (sort === "cat-asc") return a.category.localeCompare(b.category);
-      if (sort === "cat-desc") return b.category.localeCompare(a.category);
-    });
+  const filtered = useMemo(
+    () =>
+      coffees
+        .filter((c) =>
+          c.title.toLowerCase().includes(debounceQuery.toLowerCase())
+        )
+        .filter((c) => (category ? c.category === category : true))
+        .sort((a, b) => {
+          if (sort === "title-asc") return a.title.localeCompare(b.title);
+          if (sort === "title-desc") return b.title.localeCompare(a.title);
+          if (sort === "cat-asc") return a.category.localeCompare(b.category);
+          if (sort === "cat-desc") return b.category.localeCompare(a.category);
+        }),
+    [coffees, category, sort, debounceQuery]
+  );
 
   return (
     <div className="container py-4">
